@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth
+  name: msauth
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: auth
+      app: msauth
   template:
     metadata:
       labels:
-        app: auth
+        app: msauth
     spec:
       containers:
-      - name: auth
-        image: ghofrane694/msauth
-        imagePullPolicy: Never
+      - name: msauth
+        image: ghofrane694/msauth:latest
         ports:
         - containerPort: 5000
