@@ -57,19 +57,7 @@ pipeline {
             }
         }
 
-        stage(' Déploiement de la stack de monitoring') {
-            steps {
-                script {
-                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://127.0.0.1:62537']) {
-                        bat 'kubectl apply -f monitoring/prometheus-config.yaml'
-                        bat 'kubectl apply -f monitoring/prometheus-deployment.yaml'
-                        bat 'kubectl apply -f monitoring/prometheus-service.yaml'
-                        bat 'kubectl apply -f monitoring/grafana-deployment.yaml'
-                        bat 'kubectl apply -f monitoring/grafana-service.yaml'
-                    }
-                }
-            }
-        }
+  }
     }
 
     post {
